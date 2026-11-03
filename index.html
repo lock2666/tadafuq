@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="تدفّق — مركز ذكي لإدارة المال الشخصي: معاملات، ميزانيات، أهداف ادخار، وتحليلات مالية."/>
+<meta name="theme-color" content="#060913"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="تدفّق"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="icons/icon-192.png"/>
+<title>تدفّق — مركز إدارة المال الشخصي</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%A0%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ═══════════ شاشة البداية ═══════════ -->
+<div id="splash">
+  <div class="splash-inner">
+    <svg class="splash-logo" viewBox="0 0 48 48" fill="none">
+      <defs>
+        <linearGradient id="lgSplash" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#22d3ee"/>
+        </linearGradient>
+      </defs>
+      <path class="draw d1" d="M24 4 44 24 24 44 4 24Z" stroke="url(#lgSplash)" stroke-width="2.6" stroke-linejoin="round"/>
+      <path class="draw d2" d="M13 27c4-9 9 9 13 0s8 8 9-1" stroke="url(#lgSplash)" stroke-width="2.6" stroke-linecap="round"/>
+    </svg>
+    <h1>تدفّق</h1>
+    <p>مركزك الذكي لإدارة المال الشخصي</p>
+    <div class="splash-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- ═══════════ الخلفية الحية ═══════════ -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="orb orb-a" aria-hidden="true"></div>
+<div class="orb orb-b" aria-hidden="true"></div>
+<div class="orb orb-c" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- ═══════════ التطبيق ═══════════ -->
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+          <path d="M5 13.5c2-4.5 4.5 4.5 7 0s4 3.5 7-1"/>
+        </svg>
+      </span>
+      <div><b>تدفّق</b><span>إدارة المال بأناقة</span></div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-page="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span>لوحة التحكم</span>
+      </button>
+      <button class="nav-item" data-page="transactions">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>المعاملات</span>
+      </button>
+      <button class="nav-item" data-page="budgets">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+        <span>الميزانيات</span>
+      </button>
+      <button class="nav-item" data-page="goals">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <span>الأهداف</span>
+      </button>
+      <button class="nav-item" data-page="reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>التقارير</span>
+      </button>
+      <button class="nav-item" data-page="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>الإعدادات</span>
+      </button>
+    </nav>
+
+    <div class="side-card">
+      <span>الرصيد الحالي</span>
+      <b id="side-balance">0</b>
+      <div class="side-card-glow"></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="page-head">
+        <h2 id="page-title">لوحة التحكم</h2>
+        <p id="page-sub"></p>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="palette-btn" title="لوحة الأوامر (Ctrl+K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        </button>
+        <button class="icon-btn" id="theme-btn" title="تبديل المظهر"></button>
+        <button class="btn btn-primary" id="add-btn">معاملة جديدة</button>
+      </div>
+    </header>
+
+    <div class="pages">
+      <section class="page active" id="page-dashboard"></section>
+      <section class="page" id="page-transactions"></section>
+      <section class="page" id="page-budgets"></section>
+      <section class="page" id="page-goals"></section>
+      <section class="page" id="page-reports"></section>
+      <section class="page" id="page-settings"></section>
+    </div>
+
+    <footer class="app-footer">صُنع بشغف 💜 — تدفّق v2.0 — بياناتك محفوظة محليًا على جهازك 🔒</footer>
+  </main>
+</div>
+
+<button class="fab" id="fab" aria-label="معاملة جديدة"></button>
+
+<!-- ═══════════ نافذة المعاملة ═══════════ -->
+<div class="modal-backdrop" id="tx-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="tx-modal-title">معاملة جديدة</h3>
+      <button class="icon-btn modal-close" aria-label="إغلاق"></button>
+    </div>
+    <form id="tx-form" novalidate>
+      <div class="type-toggle">
+        <button type="button" class="type-btn expense active" data-type="expense">↓ مصروف</button>
+        <button type="button" class="type-btn income" data-type="income">↑ دخل</button>
+      </div>
+      <div class="field">
+        <label>المبلغ</label>
+        <div class="amount-wrap">
+          <input id="tx-amount" type="number" step="0.01" min="0" placeholder="0.00" autocomplete="off"/>
+          <span id="tx-currency">ر.س</span>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label>التصنيف</label><select id="tx-category"></select></div>
+        <div class="field"><label>التاريخ</label><input id="tx-date" type="date"/></div>
+      </div>
+      <div class="field" id="tx-repeat-box">
+        <label>التكرار</label>
+        <div class="pills" id="tx-repeat">
+          <button type="button" class="pill active" data-v="once">مرة واحدة</button>
+          <button type="button" class="pill" data-v="monthly">🔁 يتكرر شهريًا</button>
+        </div>
+      </div>
+      <div class="field hidden" id="tx-day-box">
+        <label>يوم التكرار من كل شهر (1-28)</label>
+        <input id="tx-day" type="number" min="1" max="28" value="1"/>
+      </div>
+      <div class="field">
+        <label>ملاحظة (اختياري)</label>
+        <input id="tx-note" type="text" maxlength="60" placeholder="مثال: قهوة الصباح ☕" autocomplete="off"/>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost modal-close">إلغاء</button>
+        <button type="submit" class="btn btn-primary">حفظ المعاملة</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ نافذة الهدف ═══════════ -->
+<div class="modal-backdrop" id="goal-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="goal-title-m">هدف جديد</h3>
+      <button class="icon-btn modal-close" aria-label="إغلاق"></button>
+    </div>
+    <form id="goal-form" novalidate>
+      <div class="field">
+        <label>اسم الهدف</label>
+        <input id="g-name" type="text" maxlength="40" placeholder="مثال: iPhone جديد 📱" autocomplete="off"/>
+      </div>
+      <div class="row-2">
+        <div class="field"><label>المبلغ المستهدف</label><input id="g-target" type="number" min="1" step="0.01" placeholder="5000" autocomplete="off"/></div>
+        <div class="field"><label>ادّخرت مسبقًا</label><input id="g-saved" type="number" min="0" step="0.01" placeholder="0" autocomplete="off"/></div>
+      </div>
+      <div class="field"><label>الموعد النهائي (اختياري)</label><input id="g-deadline" type="date"/></div>
+      <div class="field">
+        <label>اللون</label>
+        <div class="swatches">
+          <button type="button" class="swatch" data-color="#8b5cf6" style="background:#8b5cf6"></button>
+          <button type="button" class="swatch" data-color="#22d3ee" style="background:#22d3ee"></button>
+          <button type="button" class="swatch" data-color="#fb7185" style="background:#fb7185"></button>
+          <button type="button" class="swatch" data-color="#34d399" style="background:#34d399"></button>
+          <button type="button" class="swatch" data-color="#fbbf24" style="background:#fbbf24"></button>
+          <button type="button" class="swatch" data-color="#f97316" style="background:#f97316"></button>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost modal-close">إلغاء</button>
+        <button type="submit" class="btn btn-primary">حفظ الهدف</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ نافذة الإيداع ═══════════ -->
+<div class="modal-backdrop" id="deposit-modal">
+  <div class="modal small">
+    <div class="modal-head">
+      <h3>إيداع في الهدف</h3>
+      <button class="icon-btn modal-close" aria-label="إغلاق"></button>
+    </div>
+    <form id="dep-form" novalidate>
+      <p class="dep-target" id="dep-name"></p>
+      <div class="field">
+        <label>المبلغ</label>
+        <div class="amount-wrap">
+          <input type="number" id="dep-amount" min="0" step="0.01" placeholder="0.00" autocomplete="off"/>
+          <span class="dep-cur">ر.س</span>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost modal-close">إلغاء</button>
+        <button type="submit" class="btn btn-primary">إيداع</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ نافذة التأكيد ═══════════ -->
+<div class="modal-backdrop" id="confirm-modal">
+  <div class="modal small">
+    <div class="modal-head">
+      <h3 id="confirm-title">تأكيد</h3>
+      <button class="icon-btn modal-close" aria-label="إغلاق"></button>
+    </div>
+    <p id="confirm-msg" class="confirm-msg"></p>
+    <div class="modal-foot">
+      <button class="btn btn-ghost modal-close">إلغاء</button>
+      <button class="btn btn-danger" id="confirm-yes">نعم، متأكد</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ لوحة الأوامر ═══════════ -->
+<div class="modal-backdrop" id="palette-modal">
+  <div class="modal palette">
+    <div class="pal-head">
+      <span>🔍</span>
+      <input id="pal-input" type="text" placeholder="اكتب أمرًا أو ابحث في معاملاتك…" autocomplete="off"/>
+      <kbd class="pal-kbd">Esc</kbd>
+    </div>
+    <div class="pal-list" id="pal-list"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+<input type="file" id="import-file" accept="application/json,.json" hidden/>
+
+<script src="js/app.js"></script>
+</body>
+</html>
