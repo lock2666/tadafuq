@@ -1,5 +1,7 @@
 > 🔗 **جرّبه مباشرة:** [lock2666.github.io/tadafuq](https://lock2666.github.io/tadafuq/)
 
+> 🎬 **الإعلان الرسمي (15 ث سينمائي):** [https://lock2666.github.io/tadafuq/ad.html](https://lock2666.github.io/tadafuq/ad.html)
+
 # 💠 تدفّق — مركز إدارة المال الشخصي
 
 تطبيق ويب عربي كامل (RTL) لإدارة المال الشخصي، مبني من الصفر **بدون أي مكتبات خارجية** — HTML + CSS + JavaScript خالص. يعمل كتطبيق PWA قابل للتثبيت ودون اتصال.
