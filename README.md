@@ -1,7 +1,3 @@
-> 🔗 **جرّبه مباشرة:** [lock2666.github.io/tadafuq](https://lock2666.github.io/tadafuq/)
-
-> 🎬 **الإعلان الرسمي (15 ث سينمائي):** [https://lock2666.github.io/tadafuq/ad.html](https://lock2666.github.io/tadafuq/ad.html)
-
 # 💠 تدفّق — مركز إدارة المال الشخصي
 
 تطبيق ويب عربي كامل (RTL) لإدارة المال الشخصي، مبني من الصفر **بدون أي مكتبات خارجية** — HTML + CSS + JavaScript خالص. يعمل كتطبيق PWA قابل للتثبيت ودون اتصال.
@@ -36,6 +32,13 @@
 ```bash
 npx serve tadafuq
 ```
+
+## 🎬 الإعلانات
+| الإعلان | الرابط | الوصف |
+|---|---|---|
+| 📱 فيديو تيك توك **30 ث** (9:16) | [tadafuq-9x16.mp4](https://lock2666.github.io/tadafuq/tadafuq-9x16.mp4) | إعلان احترافي مبني بـ Remotion — هوية فاتحة نظيفة، مؤثرات صوتية خفيفة بدون موسيقى، جاهز للنشر |
+| ✨ إعلان تيك توك تفاعلي (9:16) | [ad-tiktok.html](https://lock2666.github.io/tadafuq/ad-tiktok.html) | 15 ثانية موشن جرافيكس + هاتف حي + تصدير فيديو من المتصفح |
+| 🖥️ الإعلان الأفقي | [ad.html](https://lock2666.github.io/tadafuq/ad.html) | نسخة سينمائية 16:9 |
 
 ## ⌨️ اختصارات
 - `Ctrl + K` — لوحة الأوامر والبحث
